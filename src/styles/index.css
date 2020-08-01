@@ -1,3 +1,7 @@
+:root {
+  --theme-color: #171a1b;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,5 +14,10 @@ body {
     "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #171a1b;
+  background-color: var(--theme-color);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
