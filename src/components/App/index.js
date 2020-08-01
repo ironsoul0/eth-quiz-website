@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Navbar from "../Navbar";
 import styles from "./App.module.css";
 import Challenges from "../../pages/challenges";
+import Login from "../Login";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         </Route>
         <Redirect to="/challenges" />
       </Switch>
+      <Login/>
     </div>
   );
 }
