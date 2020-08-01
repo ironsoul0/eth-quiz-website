@@ -1,0 +1,34 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import styles from "./Navbar.module.css";
+import clsx from "clsx";
+
+function Navbar({ isLoggedIn = false }) {
+  const [menu, setMenu] = useState(false);
+
+  return (
+    <div className={clsx(styles.root, [menu && styles.active])}>
+      <h2>
+        <Link to="/">E-Quiz</Link>
+      </h2>
+      <div className={styles.links}>
+        <a onClick={() => setMenu(false)} href="#">
+          Challenges
+        </a>
+        <a onClick={() => setMenu(false)} href="#">
+          Leaderboard
+        </a>
+        <a onClick={() => setMenu(false)} href="#">
+          Link 3
+        </a>
+      </div>
+      <div onClick={() => setMenu(!menu)} className={styles.burger}>
+        <div />
+        <div />
+        <div />
+      </div>
+    </div>
+  );
+}
+
+export default Navbar;

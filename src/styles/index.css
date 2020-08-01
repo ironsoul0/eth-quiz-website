@@ -12,3 +12,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #171a1b;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
