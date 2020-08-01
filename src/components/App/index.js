@@ -5,6 +5,7 @@ import Navbar from "../Navbar";
 import styles from "./App.module.css";
 import Challenges from "../../pages/challenges";
 
+
 function App() {
   const isLoggedIn = true;
 
