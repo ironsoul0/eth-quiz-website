@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 30px 0px;
+  margin: 10px 0px;
   padding: 0px 30px;
   position: relative;
   margin-bottom: 100px;
@@ -92,5 +92,9 @@
 
   .links :not(:last-of-type) {
     margin: 0;
+  }
+
+  .links :last-of-type {
+    margin-bottom: 15px;
   }
 }
