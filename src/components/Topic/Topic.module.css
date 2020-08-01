@@ -1,27 +1,22 @@
-.card{
-    position: absolute;
-    width: 280px;
-    height: 280px;
-    /* temporary */
-    left: 407px;
-    top: 300px;
+.card {
+  position: absolute;
+  /* temporary */
+  /* left: 407px;
+  top: 300px; */
 
-    background: #4D5A68;
-    border-radius: 10px;
+  background: #4d5a68;
+  border-radius: 10px;
 }
 
-.name{
-    font-style: normal;
-    font-size: 30px;
-    line-height: 45px;
-    margin: 0.5rem;
-    
+.name {
+  font-style: normal;
+  font-size: 30px;
+  line-height: 45px;
 }
 
-.stat{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 36px;
-    margin:0.5rem;
+.stat {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 36px;
 }
