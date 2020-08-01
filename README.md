@@ -4,7 +4,7 @@ This project is hopefully going to be our final project for zk-SUMMER made kindl
 
 What you should run to get started:
 
-`npm install`
-`npm start`
+- `npm install`
+- `npm start`
 
 Good luck!
