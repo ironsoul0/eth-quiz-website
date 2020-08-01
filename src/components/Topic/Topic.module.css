@@ -1,0 +1,23 @@
+.card {
+  position: absolute;
+
+  background: #4d5a68;
+  border-radius: 10px;
+}
+
+.name {
+  font-style: normal;
+  font-size: 30px;
+  line-height: 45px;
+  margin-left: 15px;
+  margin-top: 6px;
+}
+
+.stat {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 36px;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
