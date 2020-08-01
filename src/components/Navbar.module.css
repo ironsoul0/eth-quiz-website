@@ -1,0 +1,96 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 0px;
+  padding: 0px 30px;
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.links a {
+  text-decoration: none;
+  font-weight: bold;
+  color: inherit;
+  line-height: 32px;
+}
+
+.links a:hover {
+  opacity: 0.7;
+}
+
+.links :not(:last-of-type) {
+  margin-right: 12px;
+}
+
+.burger {
+  cursor: pointer;
+  display: none;
+}
+
+.burger div {
+  width: 24px;
+  height: 2px;
+  background-color: black;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.burger div:not(:last-of-type) {
+  margin-bottom: 4px;
+}
+
+.root.active .burger div:first-child {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.root.active .burger div:nth-child(2) {
+  opacity: 0;
+}
+
+.root.active .burger div:last-child {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+
+  .links {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #ffffff;
+    top: 0;
+    margin-top: 70px;
+    align-items: stretch;
+    text-align: right;
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border-bottom: 1px #eee solid;
+  }
+
+  .links a {
+    padding-right: 30px;
+  }
+
+  .root.active .links {
+    transform: none;
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .links :not(:last-of-type) {
+    margin: 0;
+  }
+}
