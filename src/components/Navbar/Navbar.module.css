@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   margin: 10px 0px;
-  padding: 0px 40px;
+  padding: 0px 10px;
   position: relative;
   margin-bottom: 100px;
 }
@@ -69,10 +69,6 @@
 }
 
 @media (max-width: 768px) {
-  .root {
-    padding: 0px 30px;
-  }
-
   .burger {
     display: block;
   }
@@ -82,7 +78,7 @@
     left: 0;
     width: 100%;
     flex-direction: column;
-    background-color: inherit;
+    background-color: var(--theme-color);
     top: 0;
     margin-top: 70px;
     align-items: stretch;
@@ -92,11 +88,11 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    border-bottom: 1px #eee solid;
+    border-bottom: 0.5px #8c867f solid;
   }
 
   .links a {
-    padding-right: 30px;
+    padding-right: 12px;
   }
 
   .root.active .links {
