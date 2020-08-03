@@ -6,6 +6,7 @@ import styles from "./App.module.css";
 import Challenges from "../../pages/challenges";
 import KnowledgeBase from "../../pages/knowledge";
 import Login from "../Login";
+import Logout from "../Logout";
 
 import { useSelector } from "react-redux";
 
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/knowledge">
             <KnowledgeBase />
+          </Route>
+          <Route path="/logout">
+            <Logout />
           </Route>
           <Redirect to="/challenges" />
         </Switch>

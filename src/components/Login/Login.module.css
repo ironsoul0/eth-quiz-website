@@ -98,8 +98,9 @@ a {
 }
 
 .span {
-  margin-left: 50px;
   margin-top: 40px;
+  display: inline-block;
+  margin-left: -120px;
 }
 
 .span:hover {

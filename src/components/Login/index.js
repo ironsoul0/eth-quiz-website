@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./Login.module.css";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { useSelector, useDispatch } from "react-redux";
-import { login, logout } from "../../store/slices/authSlice";
+import { login as loginAction } from "../../store/slices/authSlice";
 import * as Yup from "yup";
 
 function Login(props) {
@@ -26,8 +26,7 @@ function Login(props) {
             .required("Password is required"),
         })}
         onSubmit={(fields) => {
-          // Request to back-end
-          alert(JSON.stringify(fields, null, 2));
+          dispatch(loginAction("someToken"));
         }}
         render={({ errors, status, touched }) => (
           <Form className={styles.card}>
@@ -77,9 +76,9 @@ function Login(props) {
             </div>
             {/* Change URL link  */}
             <br />
-            <div onClick={() => setLogin(!login)} className={styles.span}>
+            <span onClick={() => setLogin(!login)} className={styles.span}>
               {login ? "Register an account" : "Login"}
-            </div>
+            </span>
           </Form>
         )}
       ></Formik>
