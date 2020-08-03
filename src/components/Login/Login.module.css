@@ -1,0 +1,101 @@
+.card{
+    position: absolute;
+    width: 658px;
+    height: 386px;
+    left: 515px;
+    top: 175px;
+
+    background: #4D5A68;
+    border-radius: 10px;
+}
+
+.title{
+    font-style: normal;
+    font-size: 40px;
+    line-height: 60px;
+    float: left;
+    margin: 50px 50px 20px 50px;
+}   
+
+/* input[type=text], input[type=password]{ */
+.form_control{
+    margin-bottom: 30px;
+    margin-left:50px;
+	width: 85%;
+	height: 35px;
+	box-sizing: border-box;
+	border: none;
+    font-size: 18px;
+    background-color: #4D5A68;
+	padding-left: 2px;
+	color: #fff;
+	box-shadow: inset 0px -2px 0px 0px #C4C4C4;
+    -webkit-transition: border 0.2s linear, box-shadow 0.2s linear, background-color .35s ease;
+		        
+}
+
+.is_invalid {
+
+    margin-bottom: 10px;
+    margin-left:50px;
+	width: 85%;
+	height: 35px;
+	box-sizing: border-box;
+	border: none;
+    font-size: 18px;
+    background-color: #4D5A68;
+	padding-left: 2px;
+	color: #fff;
+	box-shadow: inset 0px -2px 0px 0px red;
+
+}
+
+.error {
+    margin-left: 50px;
+    color: red;
+    margin-bottom:30px;
+}
+
+
+input::placeholder {
+    color: #C4C4C4;
+    text-align: left;
+    
+}
+
+input:focus {
+    box-shadow: inset 0px -3px 0px 0px #fff;
+    -webkit-transition: border 0.2s linear, box-shadow 0.2s linear, background-color .35s ease;
+    outline: none;
+}
+
+button[type=link] { background:none;border:none; }
+
+button{
+    width: 126px;
+    height: 35px;
+    background-color: #4589CE;
+    border-radius: 5px;
+    float: left;
+    margin-left: 50px;
+	font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    text-transform: uppercase;
+    line-height: 22px;
+	border: 1px solid rgba(224,239,241, 0.75);
+  -webkit-transition: border 0.2s linear, box-shadow 0.2s linear, background-color .35s ease;
+	color: #FFFFFF;
+	cursor: pointer;
+	   
+}
+
+button:hover {
+    background-color: #171A1B;
+}
+
+a{
+    color: #C4C4C4;
+    float: left;
+    margin:10px;
+}
