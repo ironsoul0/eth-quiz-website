@@ -29,7 +29,7 @@ function Navbar({ isLoggedIn = false }) {
   return (
     <div className={clsx(styles.root, [menu && styles.active])}>
       <h2>
-        <Link to="/">E-Quiz</Link>
+        <Link to="/">ETH Quiz</Link>
       </h2>
       <div className={styles.links}>
         {links.map((link, i) => (

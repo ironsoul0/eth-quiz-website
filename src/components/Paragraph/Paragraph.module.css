@@ -1,0 +1,17 @@
+.title{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 42px;
+    margin: 30px 20px 30px 20px;
+    text-align: left;
+}
+
+.paragraph{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 19px;
+    line-height: 28px;
+    margin:20px;
+    text-align: left;
+}
