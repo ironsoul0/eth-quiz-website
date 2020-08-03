@@ -6,6 +6,7 @@ import { login, logout } from "../../store/slices/authSlice";
 import * as Yup from "yup";
 
 function Login(props) {
+  const [login, setLogin] = useState(true);
   const token = useSelector((state) => state.auth.token);
   const dispatch = useDispatch();
 
@@ -30,7 +31,7 @@ function Login(props) {
         }}
         render={({ errors, status, touched }) => (
           <Form className={styles.card}>
-            <h3 className={styles.title}>Login</h3>
+            <h3 className={styles.title}>{login ? "Login" : "Register"}</h3>
             <div className="form-group">
               <Field
                 name="email"
@@ -66,15 +67,19 @@ function Login(props) {
               />
             </div>
             <div className="form-group">
-              <button type="submit" className="btn btn-primary mr-2">
-                Login
+              <button
+                className="button"
+                type="submit"
+                className="btn btn-primary mr-2"
+              >
+                {login ? "Login" : "Register"}
               </button>
             </div>
             {/* Change URL link  */}
-            <a href="google.com" URL>
-              {" "}
-              Register an account{" "}
-            </a>
+            <br />
+            <div onClick={() => setLogin(!login)} className={styles.span}>
+              {login ? "Register an account" : "Login"}
+            </div>
           </Form>
         )}
       ></Formik>

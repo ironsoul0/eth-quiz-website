@@ -8,9 +8,11 @@ export const authSlice = createSlice({
   reducers: {
     login: (state, action) => {
       state.token = action.payload;
+      localStorage.setItem("token", state.token);
     },
     logout: (state) => {
       state.token = null;
+      localStorage.removeItem("token");
     },
   },
 });
