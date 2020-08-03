@@ -3,7 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import clsx from "clsx";
 
-const links = [
+import { useSelector } from "react-redux";
+
+const authLinks = [
   {
     name: "Challenges",
     to: "challenges",
@@ -22,9 +24,13 @@ const links = [
   },
 ];
 
-function Navbar({ isLoggedIn = false }) {
+function Navbar() {
   const [menu, setMenu] = useState(false);
   const location = useLocation();
+
+  const token = useSelector((state) => state.auth.token);
+
+  const links = token ? authLinks : [];
 
   return (
     <div className={clsx(styles.root, [menu && styles.active])}>

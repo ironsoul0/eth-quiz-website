@@ -1,2 +1,8 @@
 .root {
 }
+
+.topics {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
