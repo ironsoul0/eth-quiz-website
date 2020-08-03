@@ -9,6 +9,7 @@ import Login from "../Login";
 import Logout from "../Logout";
 
 import { useSelector } from "react-redux";
+import Question from "../Question";
 
 function App() {
   const isLoggedIn = true;
@@ -43,6 +44,8 @@ function App() {
         </Switch>
       )}
       {/* <Login /> */}
+
+      <Question question="How are you??"/>
     </div>
   );
 }
