@@ -41,7 +41,6 @@ class Question extends React.Component {
 
         console.log(this.state.showQuestion)
             question = (
-                
                     <div className={styles.questionCard}>
 
                         <p className={styles.question}>{this.state.question}</p>
@@ -52,7 +51,7 @@ class Question extends React.Component {
             );
         }
         return (
-            <div className={styles.question}>
+            <div className={styles.root}>
               <button className={styles.buttonQuestion} onClick={this.showQuestion}>Question #</button>
                 {question}
             </div>

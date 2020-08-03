@@ -1,8 +1,11 @@
+.root{
+    width:814px;
+}
 .buttonQuestion{
     position: relative;
     width: 814px;
     height: 50px;
-    
+    margin:0;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -90,3 +93,4 @@ input:focus {
     margin-bottom: 30px;
     flex: 0 0 100%;
 }
+  
