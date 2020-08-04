@@ -93,4 +93,16 @@ input:focus {
     margin-bottom: 30px;
     flex: 0 0 100%;
 }
+
+.buttonHint{
+    background: none;
+  border: none;
+  padding: 0;
+  color: #fff;
+  width: auto;
+  margin: 10px 10px 10px 0;
+  text-decoration: underline;
+  cursor: pointer;
+
+}
   
