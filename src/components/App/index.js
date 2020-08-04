@@ -44,8 +44,6 @@ function App() {
         </Switch>
       )}
       {/* <Login /> */}
-
-      <Question question="How are you??"/>
     </div>
   );
 }
