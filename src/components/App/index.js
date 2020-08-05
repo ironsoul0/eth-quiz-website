@@ -9,14 +9,18 @@ import Login from "../Login";
 import Logout from "../Logout";
 
 import { useSelector } from "react-redux";
-import Question from "../Question";
+
+import Quiz  from '../../pages/quiz/index'
+
 
 function App() {
   const isLoggedIn = true;
 
+
   const token = useSelector((state) => state.auth.token);
 
   return (
+
     <div className={styles.root}>
       <Navbar />
       {token ? (
@@ -33,17 +37,22 @@ function App() {
           <Route path="/logout">
             <Logout />
           </Route>
-          <Redirect to="/challenges" />
+
+          <Route path="/quiz">
+            <Quiz />
+          </Route>
+          {/* <Redirect to="/challenges" /> */}
         </Switch>
       ) : (
-        <Switch>
-          <Route exact path="/">
-            <Login />
-          </Route>
-          <Redirect to="/" />
-        </Switch>
-      )}
+          <Switch>
+            <Route exact path="/">
+              <Login />
+            </Route>
+            <Redirect to="/" />
+          </Switch>
+        )}
       {/* <Login /> */}
+
     </div>
   );
 }

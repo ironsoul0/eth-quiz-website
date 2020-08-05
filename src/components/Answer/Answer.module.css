@@ -1,0 +1,41 @@
+.root{
+    width:814px;
+}
+.question{
+    margin-bottom: 30px;
+    flex: 0 0 100%;
+}
+
+.questionCard{
+    position: relative;
+    padding: 30px;
+    width: 754px;
+    display: flex;
+    flex-wrap: wrap;
+
+    flex-direction: row;
+    background: #A4AEB9; 
+    border-radius: 0 0 10px 10px;  
+}
+
+.buttonQuestion{
+    position: relative;
+    width: 814px;
+    height: 50px;
+    margin:0;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: left;
+    padding: 10px 30px 10px 30px;
+    background: #4D5A68;
+    color:#fff;
+    border-radius: 10px 10px 0 0;
+    border: none; 
+    
+}
+
+.buttonQuestion:hover{
+    background-color:#3D4853;
+}

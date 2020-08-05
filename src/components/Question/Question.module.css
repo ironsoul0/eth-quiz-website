@@ -6,6 +6,7 @@
     width: 814px;
     height: 50px;
     margin:0;
+    margin-top:50px;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -59,10 +60,9 @@
 
     flex-direction: row;
     background: #A4AEB9; 
-    border-radius: 0 0 10px 10px;
-
-    
+    border-radius: 0 0 10px 10px;  
 }
+
 input{
     flex: 70%;
     height: 35px;
