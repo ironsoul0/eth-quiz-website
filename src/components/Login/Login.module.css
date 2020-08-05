@@ -1,6 +1,7 @@
 .card {
-  width: 658px;
-  height: 386px;
+  width: 90%;
+  max-width: 650px;
+  /* height: 386px; */
   margin: 0 auto;
   background: #4d5a68;
   border-radius: 10px;
@@ -10,8 +11,8 @@
   font-style: normal;
   font-size: 40px;
   line-height: 60px;
-  float: left;
-  margin: 50px 50px 20px 50px;
+  margin: 40px 50px 20px 50px;
+  padding-top: 25px;
 }
 
 /* input[type=text], input[type=password]{ */
@@ -73,7 +74,6 @@ button {
   height: 35px;
   background-color: #4589ce;
   border-radius: 5px;
-  float: left;
   margin-left: 50px;
   font-style: normal;
   font-weight: normal;
@@ -93,17 +93,17 @@ button:hover {
 
 a {
   color: #c4c4c4;
-  float: left;
   margin: 10px;
 }
 
 .span {
-  margin-top: 40px;
   display: inline-block;
-  margin-left: -120px;
+  margin-top: 20px;
+  /* margin-left: -120px; */
+  padding-left: 50px;
+  padding-bottom: 40px;
 }
 
 .span:hover {
   cursor: pointer;
 }
-

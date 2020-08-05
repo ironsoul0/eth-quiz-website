@@ -4,11 +4,14 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import { useSelector, useDispatch } from "react-redux";
 import { login as loginAction } from "../../store/slices/authSlice";
 import * as Yup from "yup";
+import { loginCall, registerCall } from "../../api/auth";
 
 function Login(props) {
   const [login, setLogin] = useState(true);
   const token = useSelector((state) => state.auth.token);
   const dispatch = useDispatch();
+
+  const [submitted, setSubmitted] = useState(false);
 
   return (
     <>
@@ -26,11 +29,18 @@ function Login(props) {
             .required("Password is required"),
         })}
         onSubmit={(fields) => {
-          dispatch(loginAction("someToken"));
+          setSubmitted(true);
+          const funcCall = login ? loginCall : registerCall;
+          funcCall(fields.email, fields.password).then((result) => {
+            if (result.success) {
+              dispatch(loginAction(result.token));
+            }
+          });
         }}
         render={({ errors, status, touched }) => (
           <Form className={styles.card}>
             <h3 className={styles.title}>{login ? "Login" : "Register"}</h3>
+
             <div className="form-group">
               <Field
                 name="email"
@@ -74,6 +84,7 @@ function Login(props) {
                 {login ? "Login" : "Register"}
               </button>
             </div>
+            {submitted && <p style={{ marginLeft: "50px" }}>Submitting..</p>}
             {/* Change URL link  */}
             <br />
             <span onClick={() => setLogin(!login)} className={styles.span}>
