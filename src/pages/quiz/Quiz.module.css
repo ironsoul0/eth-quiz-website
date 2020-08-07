@@ -1,0 +1,28 @@
+
+.buttonSubmit{
+    justify-content: center;
+    
+    height: 35px;
+    background-color: #4589CE;
+    border-radius: 5px;
+    margin: 50px;
+	font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    text-transform: uppercase;
+    line-height: 22px;
+	border: 1px solid rgba(224,239,241, 0.75);
+    -webkit-transition: border 0.2s linear, box-shadow 0.2s linear, background-color .35s ease;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.buttonSubmit:disabled{
+    background-color: darken(#4589CE,30%);
+    color:lighten(#fff,25%);
+    cursor: not-allowed;
+  }
+
+.buttonSubmit:hover {
+    background-color: #171A1B;
+}

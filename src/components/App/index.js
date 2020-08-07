@@ -7,19 +7,26 @@ import Challenges from "../../pages/challenges";
 import KnowledgeBase from "../../pages/knowledge";
 import Login from "../Login";
 import Logout from "../Logout";
+import Results from '../../pages/results'
 
 import { useSelector } from "react-redux";
+
+import Quiz from '../../pages/quiz'
+
 
 function App() {
   const isLoggedIn = true;
 
+
   const token = useSelector((state) => state.auth.token);
 
   return (
+
     <div className={styles.root}>
       <Navbar />
       {token ? (
         <Switch>
+          
           <Route path="/challenges">
             <Challenges />
           </Route>
@@ -29,20 +36,24 @@ function App() {
           <Route path="/knowledge">
             <KnowledgeBase />
           </Route>
+          
           <Route path="/logout">
             <Logout />
           </Route>
-          <Redirect to="/challenges" />
+          <Route path="/quiz" render={(props) => <Quiz {...props}/>}/>
+            
+          <Route path="/results"render={(props) => <Results {...props}/>}/>
         </Switch>
       ) : (
-        <Switch>
-          <Route exact path="/">
-            <Login />
-          </Route>
-          <Redirect to="/" />
-        </Switch>
-      )}
+          <Switch>
+            <Route exact path="/">
+              <Login />
+            </Route>
+            <Redirect to="/" />
+          </Switch>
+        )}
       {/* <Login /> */}
+
     </div>
   );
 }

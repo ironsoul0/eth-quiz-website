@@ -1,67 +1,62 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
 import Topic from "../../components/Topic";
 
 import Header from "../../components/Header";
 import styles from "./Challenges.module.css";
 
+
+function requestToBackend() {
+  return [{
+    "topic": "Privacy",
+    "total": 10,
+    "points": 7
+  },
+  {
+    "topic": "DApp Dev",
+    "total": 14,
+    "points": 8
+  },
+  {
+    "topic": "ZKP",
+    "total": 14,
+    "points": 2
+  },
+  {
+    "topic": "Privacy",
+    "total": 14,
+    "points": 2
+  },
+  {
+    "topic": "DApp Dev",
+    "total": 14,
+    "points": 8
+  },
+  {
+    "topic": "DApp Dev",
+    "total": 14,
+    "points": 8
+  }]
+}
+
 function Challenges() {
+
+  const res = requestToBackend()
+  const rows = [...Array(Math.ceil(res.length / 4))];
+
+  const productRows = rows.map((row, idx) => res.slice(idx * 4, idx * 4 + 4));
+  const content = productRows.map((row, idx) => (
+    <div className={styles.topics} key={idx}>
+      {row.map(product =>
+        <Topic topic={product.topic} done={product.points} total={product.total} />)}
+    </div>)
+  );
+
   return (
     <div className={styles.root}>
       <Header>Topics</Header>
-      <div className={styles.topics}>
-        <Topic
-          url="https://source.unsplash.com/user/erondu/600x400"
-          done="5"
-          total="10"
-          topic="ZK"
-        />
-        <Topic
-          url="https://source.unsplash.com/user/erondu/600x400"
-          done="5"
-          total="10"
-          topic="Security"
-        />
-        <Topic
-          url="https://source.unsplash.com/user/erondu/600x400"
-          done="5"
-          total="10"
-          topic="Proofs"
-        />
-        <Topic
-          url="https://source.unsplash.com/user/erondu/600x400"
-          done="5"
-          total="10"
-          topic="DApp Dev"
-        />
-      </div>
-      <div className={styles.topics}>
-        <Topic
-          url="https://source.unsplash.com/user/erondu/600x400"
-          done="5"
-          total="10"
-          topic="ZK"
-        />
-        <Topic
-          url="https://source.unsplash.com/user/erondu/600x400"
-          done="5"
-          total="10"
-          topic="Security"
-        />
-        <Topic
-          url="https://source.unsplash.com/user/erondu/600x400"
-          done="5"
-          total="10"
-          topic="Proofs"
-        />
-        <Topic
-          url="https://source.unsplash.com/user/erondu/600x400"
-          done="5"
-          total="10"
-          topic="DApp Dev"
-        />
-      </div>
+      {content}
     </div>
+
   );
 }
 
