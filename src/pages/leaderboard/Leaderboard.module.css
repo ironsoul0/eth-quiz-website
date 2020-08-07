@@ -1,0 +1,30 @@
+.leaders {
+  max-width: 700px;
+  font-size: 20px;
+}
+
+.loader {
+  font-size: 18px;
+}
+
+.place {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.leader:nth-child(1) {
+  font-weight: bold;
+}
+
+.leader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.leader :not(:last-of-type) {
+  margin-bottom: 10px;
+}
+
+.leader:first-of-type {
+  margin-bottom: 15px;
+}
