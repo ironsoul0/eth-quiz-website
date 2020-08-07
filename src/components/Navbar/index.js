@@ -19,6 +19,10 @@ const authLinks = [
     to: "knowledge",
   },
   {
+    name: "Quests",
+    to: "quests",
+  },
+  {
     name: "Logout",
     to: "logout",
   },
