@@ -42,6 +42,7 @@ class Question extends React.Component {
     }
     render() {
         let question = null;
+        let style = null;
         let hint = null;
         if (this.state.showHint) {
             hint = (
@@ -63,10 +64,14 @@ class Question extends React.Component {
                     {hint}
                 </div>
             );
+        }else{
+            style = {
+                borderRadius: '10px 10px 10px 10px',
+            }
         }
         return (
             <div className={styles.root}>
-                <button className={styles.buttonQuestion} onClick={this.showQuestion}>Question {this.state.id + 1}</button>
+                <button className={styles.buttonQuestion} style={style} onClick={this.showQuestion}>Question {this.state.id + 1}</button>
                 {question}
             </div>
         );

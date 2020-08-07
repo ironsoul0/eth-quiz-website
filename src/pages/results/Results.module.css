@@ -1,0 +1,41 @@
+.questionCard{
+    position: relative;
+    padding: 30px;
+    width: 754px;
+    display: flex;
+    flex-wrap: wrap;
+
+    flex-direction: row;
+    background: #A4AEB9; 
+    border-radius: 0 0 10px 10px;  
+}
+
+.buttonSubmit{
+    
+    height: 35px;
+    background-color: #4589CE;
+    border-radius: 5px;
+    margin: 50px;
+    padding: 10px 20px 30px 20px;
+    width:auto;
+
+	font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    text-transform: uppercase;
+    line-height: 22px;
+	border: 1px solid rgba(224,239,241, 0.75);
+  -webkit-transition: border 0.2s linear, box-shadow 0.2s linear, background-color .35s ease;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.stat {
+    font-style: normal;
+    font-weight: normal;
+    color:#fff;
+    font-size: 24px;
+    line-height: 36px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+  }

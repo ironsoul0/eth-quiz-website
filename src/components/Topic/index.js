@@ -2,46 +2,19 @@ import React, { useState } from "react";
 import styles from "./Topic.module.css";
 import axios from 'axios'
 
-import { useHistory, Redirect  } from "react-router-dom";
-
-
-
-function requestToBackend() {
-  return [{
-    "id" : 1,
-    "question": "How are you?",
-    "topic": "Privacy",
-    "hint":"you are bad"
-  },
-  {
-    "id" : 2,
-    "question": "How are you?",
-    "topic": "Privacy",
-    "hint":"you are bad"
-  },{
-    "id" : 3,
-    "question": "How are you?",
-    "topic": "Privacy",
-    "hint":"you are bad"
-  },{
-    "id" : 4,
-    "question": "How are you?",
-    "topic": "Privacy",
-    "hint":"you are bad"
-  }
-  ]
-}
+import { useHistory, Redirect, Link } from "react-router-dom";
 
 
 
 
 class Topic extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      redirect: false
+      redirect: false,
+      questions: []
     }
-    this.handleClick=this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   style = {
@@ -52,29 +25,73 @@ class Topic extends React.Component {
     borderTopRightRadius: "10px",
   };
 
-  handleClick(e){
-    // axios.get('https://api.github.com/users/maecapozzi')
-    // .then(response => console.log(response))
-    const res = requestToBackend;
+
+
+
+  async requestToBackend() {
+    return axios.get('http://localhost:8000/generate-quiz', 
+    {
+      params: {
+        topic : this.props.topic
+      }
+    })
+    // return {
+    //   "quiz": [{
+    //     "id": 1,
+    //     "question": "How are you?",
+    //     "topic": "Privacy",
+    //     "hint": "you are bad"
+    //   },
+    //   {
+    //     "id": 2,
+    //     "question": "How are you?",
+    //     "topic": "Privacy",
+    //     "hint": "you are bad"
+    //   }, {
+    //     "id": 3,
+    //     "question": "How are you?",
+    //     "topic": "Privacy",
+    //     "hint": "you are bad"
+    //   }, {
+    //     "id": 4,
+    //     "question": "How are you?",
+    //     "topic": "Privacy",
+    //     "hint": "you are bad"
+    //   }
+    //   ]
+    // }
+  }
+
+  async handleClick(e) {
+    const res = await this.requestToBackend();
+    console.log(res)
     this.setState({
-      redirect: true
+      redirect: true,
+      questions: res.quiz
     })
 
   }
-  
-  render(){
+
+  render() {
+    console.log(this.props.topic)
     if (this.state.redirect) {
-      return <Redirect to='quiz'/>
+      return <Redirect to={{
+        pathname: "quiz",
+        state: {
+          topic: this.props.topic,
+          questions: this.state.questions
+        }
+      }} />
     }
-  return (
-    <button className={styles.card} onClick={this.handleClick} > 
-      <div style={this.style}></div>
-      <h3 className={styles.name}>{this.props.topic}</h3>
-      <p className={styles.stat}>
-        {this.props.done}/{this.props.total}
-      </p>
-    </button>
-  )
+    return (
+      <button className={styles.card} onClick={this.handleClick}>
+        <div style={this.style}></div>
+        <h3 className={styles.name}>{this.props.topic}</h3>
+        <p className={styles.stat}>
+          {this.props.done}/{this.props.total}
+        </p>
+      </button>
+    )
   }
 }
 

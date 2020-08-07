@@ -7,10 +7,11 @@ import Challenges from "../../pages/challenges";
 import KnowledgeBase from "../../pages/knowledge";
 import Login from "../Login";
 import Logout from "../Logout";
+import Results from '../../pages/results'
 
 import { useSelector } from "react-redux";
 
-import Quiz  from '../../pages/quiz/index'
+import Quiz from '../../pages/quiz'
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <Navbar />
       {token ? (
         <Switch>
+          
           <Route path="/challenges">
             <Challenges />
           </Route>
@@ -34,14 +36,13 @@ function App() {
           <Route path="/knowledge">
             <KnowledgeBase />
           </Route>
+          
           <Route path="/logout">
             <Logout />
           </Route>
-
-          <Route path="/quiz">
-            <Quiz />
-          </Route>
-          {/* <Redirect to="/challenges" /> */}
+          <Route path="/quiz" render={(props) => <Quiz {...props}/>}/>
+            
+          <Route path="/results"render={(props) => <Results {...props}/>}/>
         </Switch>
       ) : (
           <Switch>
