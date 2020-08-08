@@ -12,7 +12,9 @@ import Leaderboard from "../../pages/leaderboard";
 
 import { useSelector } from "react-redux";
 
-import Quiz from "../../pages/quiz";
+import Quiz from '../../pages/quiz'
+import Quest from "../QuestENS";
+
 
 function App() {
   const isLoggedIn = true;
@@ -36,9 +38,14 @@ function App() {
           <Route path="/logout">
             <Logout />
           </Route>
-          <Route path="/quiz" render={(props) => <Quiz {...props} />} />
 
-          <Route path="/results" render={(props) => <Results {...props} />} />
+          <Route path="/quest">
+            <Quest />
+          </Route>
+
+          <Route path="/quiz" render={(props) => <Quiz {...props}/>}/>
+            
+          <Route path="/results"render={(props) => <Results {...props}/>}/>
         </Switch>
       ) : (
         <Switch>
