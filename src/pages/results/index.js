@@ -33,7 +33,7 @@ class Results extends React.Component {
                 <Header>{this.props.location.topic}</Header>
                 <p className={styles.stat}>Points: {res.points}/{res.total}</p>
                 {res.answers.map((value, index) => (
-                    <Answer answer={value.correct_answer} id={index} userInput={value.input} correct={value.correct} correctAnswer={value.correct_answer} question={value.question}  id={index} />
+                    <Answer answer={value.correct_answer} id={index} key={index} userInput={value.input} correct={value.correct} correctAnswer={value.correct_answer} question={value.question}  id={index} />
                 ))}
                 
                 <button className={styles.buttonSubmit} onClick={this.handleSubmit}>Back to topics</button>

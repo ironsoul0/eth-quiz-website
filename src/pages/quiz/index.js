@@ -14,7 +14,7 @@ class Quiz extends React.Component {
         this.state = {
             payload: {},
             answers: [],
-            questions : {},
+            questions: {},
             redirect: false
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -58,38 +58,83 @@ class Quiz extends React.Component {
         })
     }
 
-    async handleSubmit(){
-        this.setState({
-            payload: {
-                topic: this.props.topic,
-                answers: this.state.answers
+    handleSubmit() {
+
+        // while (this.state.answers.length !== this.props.location.state.questions.length) {
+        //     this.setState({
+        //         answers: [...this.state.answers, { "id": id, "answer": answer }]
+        //     })
+        // }
+
+
+        const answered = {}
+
+        console.log(this.state.answers)
+        this.state.answers.forEach(answer => {
+            answered[answer.id] = answer.answer
+        })
+
+        this.props.location.state.questions.forEach(question => {
+            if (answered[question.id] === undefined) {
+                answered[question.id] = ""
             }
         })
-        this.setState({
-            questions : await axios.post('http://localhost:8000/check-quiz', this.state.payload),
-            // questions: this.sendToBack(),
-            redirect: true
-        }) 
+
+        const temp_answers = []
+
+        for (const property in answered) {
+            console.log(property)
+            
+            temp_answers.push({
+                id: property,
+                answer: answered[property]
+            })
+            // temp_answers.id = property
+
+            // temp_answers.answer = answered[property]
+        }
+
+        
+
+
+        const payload = {
+            answers: temp_answers
+        }
+
+
+
+        console.log(payload)
+
+        console.log(this.props.location.state.questions)
+
+
+
+        axios.put('/quiz/check-quiz', payload).then(res => {
+            console.log(res)
+            this.setState({
+                questions: res.data,
+                redirect: true
+            })
+        })
 
     }
-    
+
 
     render() {
         if (this.state.redirect) {
             return <Redirect to={{
-              pathname: "results",
-              state: {
-                topic: this.props.topic,
-                questions: this.state.questions
-              }
+                pathname: "results",
+                state: {
+                    topic: this.props.topic,
+                    questions: this.state.questions
+                }
             }} /> //PASS topic and questions from here
-          }
-
+        }
         return (
             <div className={styles.root}>
                 <Header>{this.props.location.state.topic}</Header>
                 {this.props.location.state.questions.map((value, index) => (
-                    <Question onChildClick={this.handleAnswer} question={value.question} hint={value.hint} id={index} />
+                    <Question onChildClick={this.handleAnswer} question={value.question} hint={value.hint} id={value.id} key={value.id} />
                 ))}
                 <button className={styles.buttonSubmit} onClick={this.handleSubmit}>Submit</button>
             </div>

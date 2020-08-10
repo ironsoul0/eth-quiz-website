@@ -52,8 +52,6 @@ class Question extends React.Component {
         }
 
         if (this.state.showQuestion) {
-
-            console.log(this.state.showHint)
             question = (
                 <div className={styles.questionCard}>
 
@@ -71,7 +69,7 @@ class Question extends React.Component {
         }
         return (
             <div className={styles.root}>
-                <button className={styles.buttonQuestion} style={style} onClick={this.showQuestion}>Question {this.state.id + 1}</button>
+                <button className={styles.buttonQuestion} style={style} onClick={this.showQuestion}>Question {this.state.id}</button>
                 {question}
             </div>
         );

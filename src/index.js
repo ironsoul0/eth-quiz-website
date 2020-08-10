@@ -6,9 +6,17 @@ import App from "./components/App";
 import store from "./store";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
+import axios from 'axios'
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+// axios.defaults.baseURL = 'https://cors-anywhere.herokuapp.com/http://090809ae5471.ngrok.io';
+axios.defaults.baseURL = 'https://1e67b76bd328.ngrok.io'
+// axios.defaults.baseURL = 'http://090809ae5471.ngrok.io'
+// axios.defaults.baseURL = 'https://localhost:8000'
+axios.defaults.headers.common = {
+  "X-Requested-With": "XMLHttpRequest",
+};
 
 ReactDOM.render(
   <React.StrictMode>

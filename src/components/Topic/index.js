@@ -29,12 +29,12 @@ class Topic extends React.Component {
 
 
   async requestToBackend() {
-    return axios.get('http://localhost:8000/generate-quiz', 
-    {
-      params: {
-        topic : this.props.topic
-      }
-    })
+    return axios.get('/quiz/generate-quiz',
+      {
+        params: {
+          topic: this.props.topic
+        }
+      })
     // return {
     //   "quiz": [{
     //     "id": 1,
@@ -62,18 +62,21 @@ class Topic extends React.Component {
     // }
   }
 
-  async handleClick(e) {
-    const res = await this.requestToBackend();
-    console.log(res)
+  
+  handleClick(){
     this.setState({
-      redirect: true,
-      questions: res.quiz
+      redirect: true
     })
-
+  }
+  async componentDidMount(){
+    const res = await this.requestToBackend();
+    this.setState({
+      questions: res.data.questions
+    })
   }
 
+
   render() {
-    console.log(this.props.topic)
     if (this.state.redirect) {
       return <Redirect to={{
         pathname: "quiz",
