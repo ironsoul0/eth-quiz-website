@@ -39,7 +39,7 @@ function App() {
             <Logout />
           </Route>
 
-          <Route path="/quest">
+          <Route path="/quests">
             <Quest />
           </Route>
 
