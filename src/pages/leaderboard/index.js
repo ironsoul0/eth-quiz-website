@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Leaderboard.module.css";
 import Header from "../../components/Header";
+import axios from "axios";
 
 function requestToBackend() {
   return {
@@ -61,13 +62,14 @@ function getLeaders() {
 function Leaderboard() {
   const [data, setData] = useState({
     loading: true,
-    info: {},
+    info: [],
   });
 
   useEffect(() => {
-    getLeaders().then((info) => {
+    axios("/quiz/load-leaderboard").then((response) => {
+      const { data } = response;
       setData({
-        info,
+        info: data.leaderboard.slice(0, 10),
         loading: false,
       });
     });
@@ -77,12 +79,12 @@ function Leaderboard() {
     <div className={styles.root}>
       <Header>TOP 10</Header>
       {data.loading && <p className={styles.loader}>Loading...</p>}
-      {!data.loading && (
-        <p className={styles.place}>Your place: {data.info.place}</p>
-      )}
+      {/* {!data.loading && ( */}
+      {/* <p className={styles.place}>Your place: {data.info.place}</p> */}
+      {/* )} */}
       <div className={styles.leaders}>
         {!data.loading &&
-          [{ user: "User", score: "Score" }, ...data.info.table].map(
+          [{ user: "User", score: "Score" }, ...data.info].map(
             (leaderInfo, index) => {
               return (
                 <div className={styles.leader}>
