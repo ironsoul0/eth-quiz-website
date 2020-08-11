@@ -9,6 +9,7 @@ export const authSlice = createSlice({
     login: (state, action) => {
       state.token = action.payload;
       localStorage.setItem("token", state.token);
+      window.location.reload();
     },
     logout: (state) => {
       state.token = null;

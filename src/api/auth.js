@@ -1,24 +1,39 @@
-// import config from '../config';
+import axios from "axios";
 
-const loginCall = (email, password) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve({
-        success: true,
-        token: "carousel",
-      });
-    }, 1500);
+const loginCall = async (email, password) => {
+  const result = await axios.post("/api/auth/login", {
+    email,
+    password,
   });
+
+  const content = JSON.parse(result.data.tokens.replace(/'/g, '"'));
+
+  if (content) {
+    return {
+      success: true,
+      token: content.access,
+    };
+  }
+
+  return {
+    success: false,
+  };
 };
 
-const registerCall = (email, password) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve({
-        success: true,
-      });
-    }, 1500);
+const registerCall = async (username, email, password) => {
+  const result = await axios.post("/api/auth/register", {
+    username,
+    email,
+    password,
   });
+
+  if (result.status === 201) {
+    return loginCall(email, password);
+  }
+
+  return {
+    success: false,
+  };
 };
 
 export { loginCall, registerCall };

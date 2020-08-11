@@ -11,7 +11,7 @@ function Login(props) {
   const token = useSelector((state) => state.auth.token);
   const dispatch = useDispatch();
 
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState("");
 
   return (
     <>
@@ -19,6 +19,7 @@ function Login(props) {
         initialValues={{
           email: "",
           password: "",
+          username: "",
         }}
         validationSchema={Yup.object().shape({
           email: Yup.string()
@@ -29,18 +30,37 @@ function Login(props) {
             .required("Password is required"),
         })}
         onSubmit={(fields) => {
-          setSubmitted(true);
-          const funcCall = login ? loginCall : registerCall;
-          funcCall(fields.email, fields.password).then((result) => {
-            if (result.success) {
-              dispatch(loginAction(result.token));
-            }
-          });
+          setSubmitted("Submitting");
+          const funcCall = login
+            ? loginCall(fields.email, fields.password)
+            : registerCall(fields.username, fields.email, fields.password);
+          funcCall
+            .then((result) => {
+              console.log(result);
+
+              if (result.success) {
+                dispatch(loginAction(result.token));
+              } else {
+                setSubmitted("Bad data");
+              }
+            })
+            .catch(() => {
+              setSubmitted("Bad data");
+            });
         }}
         render={({ errors, status, touched }) => (
           <Form className={styles.card}>
             <h3 className={styles.title}>{login ? "Login" : "Register"}</h3>
-
+            {!login && (
+              <div className="form-group">
+                <Field
+                  name="username"
+                  type="text"
+                  placeholder="Login"
+                  className={styles.form_control}
+                />
+              </div>
+            )}
             <div className="form-group">
               <Field
                 name="email"
@@ -84,7 +104,7 @@ function Login(props) {
                 {login ? "Login" : "Register"}
               </button>
             </div>
-            {submitted && <p style={{ marginLeft: "50px" }}>Submitting..</p>}
+            {submitted && <p style={{ marginLeft: "50px" }}>{submitted}</p>}
             {/* Change URL link  */}
             <br />
             <span onClick={() => setLogin(!login)} className={styles.span}>
