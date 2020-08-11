@@ -1,0 +1,19 @@
+.root {
+  /* margin: 100px; */
+}
+
+.addQuestion {
+  margin-left: 0px;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.questionBlock {
+  margin-top: 40px;
+}
+
+.questionBlock input {
+  width: 75%;
+  max-width: 600px;
+  margin-bottom: 10px;
+}

@@ -9,11 +9,14 @@ import Login from "../Login";
 import Logout from "../Logout";
 import Results from "../../pages/results";
 import Leaderboard from "../../pages/leaderboard";
+import TopicCreate from "../../pages/topic-create";
 
 import { useSelector } from "react-redux";
 
 import Quiz from "../../pages/quiz";
 import Quest from "../QuestENS";
+
+import Admin from "../../pages/admin";
 
 function App() {
   const isLoggedIn = true;
@@ -40,6 +43,14 @@ function App() {
 
           <Route path="/quests">
             <Quest />
+          </Route>
+
+          <Route exact path="/admin">
+            <Admin />
+          </Route>
+
+          <Route exact path="/admin/create">
+            <TopicCreate />
           </Route>
 
           <Route path="/quiz" render={(props) => <Quiz {...props} />} />
