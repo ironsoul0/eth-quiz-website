@@ -1,0 +1,19 @@
+.card {
+  margin: 0 auto;
+  border: 1px white solid;
+  margin-bottom: 40px;
+  padding: 20px 10px;
+}
+
+.card p {
+  margin-bottom: 15px;
+}
+
+.heading {
+  margin-bottom: 100px;
+}
+
+.deleteButton {
+  margin: 0;
+  margin-top: 40px;
+}
