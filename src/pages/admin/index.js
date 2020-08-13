@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import styles from "./Admin.module.css";
+import { Link } from "react-router-dom";
 
 function Admin() {
   const [authorized, setAuthorized] = useState(true);
@@ -60,6 +61,7 @@ function Admin() {
             >
               Delete topic
             </button>
+            <Link to={`admin/${topic.topic_id}`}>Manage</Link>
           </div>
         );
       })}

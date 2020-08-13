@@ -10,6 +10,7 @@ import Logout from "../Logout";
 import Results from "../../pages/results";
 import Leaderboard from "../../pages/leaderboard";
 import TopicCreate from "../../pages/topic-create";
+import ManageTopic from "../../pages/topic-manage";
 
 import { useSelector } from "react-redux";
 
@@ -19,8 +20,6 @@ import Quest from "../QuestENS";
 import Admin from "../../pages/admin";
 
 function App() {
-  const isLoggedIn = true;
-
   const token = useSelector((state) => state.auth.token);
 
   return (
@@ -51,6 +50,10 @@ function App() {
 
           <Route exact path="/admin/create">
             <TopicCreate />
+          </Route>
+
+          <Route path="/admin/:slug">
+            <ManageTopic />
           </Route>
 
           <Route path="/quiz" render={(props) => <Quiz {...props} />} />
