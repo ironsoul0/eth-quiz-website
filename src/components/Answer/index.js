@@ -10,7 +10,7 @@ class Answer extends React.Component {
             correctAnswer: props.correctAnswer,
             userInput: props.userInput,
             correct: props.correct,
-            showQuestion:false
+            showQuestion:true,
         }        
     }
 

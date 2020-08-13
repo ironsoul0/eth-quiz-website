@@ -11,7 +11,7 @@ class Question extends React.Component {
             question: props.question,
             hint: props.hint,
             answer: "",
-            showQuestion: false,
+            showQuestion: true,
             showHint: false
         }
 

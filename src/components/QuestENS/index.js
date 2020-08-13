@@ -11,7 +11,7 @@ class Quest extends React.Component {
         this.state = {
             answer: "",
             result: null,
-            showQuestion: false
+            showQuestion: true
         }
 
         this.handleChange = this.handleChange.bind(this);
