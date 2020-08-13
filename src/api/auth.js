@@ -12,6 +12,7 @@ const loginCall = async (email, password) => {
     return {
       success: true,
       token: content.access,
+      refresh: content.refresh,
     };
   }
 

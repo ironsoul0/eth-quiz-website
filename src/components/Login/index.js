@@ -39,7 +39,12 @@ function Login(props) {
               console.log(result);
 
               if (result.success) {
-                dispatch(loginAction(result.token));
+                dispatch(
+                  loginAction({
+                    token: result.token,
+                    refresh: result.refresh,
+                  })
+                );
               } else {
                 setSubmitted("Bad data");
               }

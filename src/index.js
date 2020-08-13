@@ -7,6 +7,7 @@ import store from "./store";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 import axios from "axios";
+import refreshToken from "./utils/refreshToken";
 
 import { BrowserRouter as Router } from "react-router-dom";
 
@@ -24,6 +25,8 @@ if (localStorage.getItem("token")) {
   axios.defaults.headers.common[
     "Authorization"
   ] = `Bearer ${localStorage.getItem("token")}`;
+
+  refreshToken(axios);
 }
 
 ReactDOM.render(
