@@ -61,7 +61,7 @@ function Admin() {
             >
               Delete topic
             </button>
-            <Link to={`admin/${topic.topic_id}`}>Manage</Link>
+            <Link to={`admin/${topic.topic_name}`}>Manage</Link>
           </div>
         );
       })}

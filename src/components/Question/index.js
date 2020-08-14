@@ -7,9 +7,6 @@ class Question extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: props.id,
-            question: props.question,
-            hint: props.hint,
             answer: "",
             showQuestion: true,
             showHint: false
@@ -37,7 +34,7 @@ class Question extends React.Component {
     }
 
     disableOnclick = (e) => {
-        this.props.onChildClick(this.state.id, this.state.answer);
+        this.props.onChildClick(this.props.id, this.state.answer);
         e.target.disabled = true
     }
     render() {
@@ -47,7 +44,7 @@ class Question extends React.Component {
         if (this.state.showHint) {
             hint = (
 
-                <p className={styles.question}>{this.state.hint}</p>
+                <p className={styles.question}>{this.props.hint}</p>
             )
         }
 
@@ -55,8 +52,8 @@ class Question extends React.Component {
             question = (
                 <div className={styles.questionCard}>
 
-                    <p className={styles.question}>{this.state.question}</p>
-                    <input type="text" className={styles.input} value={this.state.answer} onChange={this.handleChange} placeholder="Type the answer here"></input>
+                    <p className={styles.question}>{this.props.question}</p>
+                    <input type="text" className={styles.input} value={this.props.answer} onChange={this.handleChange} placeholder="Type the answer here"></input>
                     <button className={styles.buttonSubmit} onClick={(e) => this.disableOnclick(e)}>Submit</button>
                     <button className={styles.buttonHint} onClick={this.showHint}>Click me to see a hint!</button>
                     {hint}
@@ -69,7 +66,7 @@ class Question extends React.Component {
         }
         return (
             <div className={styles.root}>
-                <button className={styles.buttonQuestion} style={style} onClick={this.showQuestion}>Question {this.state.id}</button>
+                <button className={styles.buttonQuestion} style={style} onClick={this.showQuestion}>Question {this.props.index+1}</button>
                 {question}
             </div>
         );

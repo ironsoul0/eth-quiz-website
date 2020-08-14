@@ -12,9 +12,7 @@ import refreshToken from "./utils/refreshToken";
 import { BrowserRouter as Router } from "react-router-dom";
 
 // axios.defaults.baseURL = 'https://cors-anywhere.herokuapp.com/http://090809ae5471.ngrok.io';
-//axios.defaults.baseURL = 'https://1e67b76bd328.ngrok.io'
-// axios.defaults.baseURL = "http://090809ae5471.ngrok.io";
-// axios.defaults.baseURL = 'https://localhost:8000'
+
 axios.defaults.baseURL = "http://134.122.91.61:8000";
 
 axios.defaults.headers.common = {

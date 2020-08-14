@@ -43,8 +43,8 @@
 }
 
 .buttonSubmit:disabled{
-    background-color: black;
-    color:black;
+    background-color: darkgrey;
+    color:darken(#fff,90%);
     cursor: not-allowed;
   }
 

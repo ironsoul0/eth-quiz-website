@@ -6,6 +6,7 @@ import styles from "./Challenges.module.css";
 import axios from "axios";
 
 
+
 // function requestToBackend() {
 
 
@@ -59,7 +60,6 @@ function Challenges() {
 
   const content = <div className={styles.topics}>
     {topics.map((product) => {
-      // topic_id: 1, topic_name: "ethereum", total: 13, solved: 0
       return <Topic topic={product.topic_name} id={product.topic_id} done={product.solved} total={product.total} key={product.topic_id} />
     })}
   </div>
@@ -68,6 +68,7 @@ function Challenges() {
     <div className={styles.root}>
       <Header>Topics</Header>
       {content}
+
     </div>
 
   );

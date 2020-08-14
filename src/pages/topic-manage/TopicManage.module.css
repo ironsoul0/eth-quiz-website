@@ -1,2 +1,9 @@
 .root {
 }
+
+
+.deleteButton{
+    margin: 50px;
+    width: auto;
+    padding: 5px;
+}

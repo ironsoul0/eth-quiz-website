@@ -60,16 +60,8 @@ class Quiz extends React.Component {
 
     handleSubmit() {
 
-        // while (this.state.answers.length !== this.props.location.state.questions.length) {
-        //     this.setState({
-        //         answers: [...this.state.answers, { "id": id, "answer": answer }]
-        //     })
-        // }
-
-
         const answered = {}
 
-        console.log(this.state.answers)
         this.state.answers.forEach(answer => {
             answered[answer.id] = answer.answer
         })
@@ -83,34 +75,19 @@ class Quiz extends React.Component {
         const temp_answers = []
 
         for (const property in answered) {
-            console.log(property)
-            
+
             temp_answers.push({
                 id: property,
                 answer: answered[property]
             })
-            // temp_answers.id = property
-
-            // temp_answers.answer = answered[property]
         }
-
-        
 
 
         const payload = {
             answers: temp_answers
         }
 
-
-
-        console.log(payload)
-
-        console.log(this.props.location.state.questions)
-
-
-
         axios.put('/quiz/check-quiz', payload).then(res => {
-            console.log(res)
             this.setState({
                 questions: res.data,
                 redirect: true
@@ -134,7 +111,7 @@ class Quiz extends React.Component {
             <div className={styles.root}>
                 <Header>{this.props.location.state.topic}</Header>
                 {this.props.location.state.questions.map((value, index) => (
-                    <Question onChildClick={this.handleAnswer} question={value.question} hint={value.hint} id={value.id} key={value.id} />
+                    <Question onChildClick={this.handleAnswer} question={value.question} hint={value.hint} id={value.id} key={value.id} index={index} />
                 ))}
                 <button className={styles.buttonSubmit} onClick={this.handleSubmit}>Submit</button>
             </div>
