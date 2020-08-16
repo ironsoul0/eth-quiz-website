@@ -13,7 +13,10 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 // axios.defaults.baseURL = 'https://cors-anywhere.herokuapp.com/http://090809ae5471.ngrok.io';
 
-axios.defaults.baseURL = "http://134.122.91.61:8000";
+axios.defaults.baseURL =
+  process.env.NODE_ENV === "production"
+    ? "https://ethereum.ironsoul.me"
+    : "http://134.122.91.61:8000";
 
 axios.defaults.headers.common = {
   "X-Requested-With": "XMLHttpRequest",
