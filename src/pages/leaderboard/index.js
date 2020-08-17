@@ -68,6 +68,24 @@ function Leaderboard() {
   useEffect(() => {
     axios("/quiz/load-leaderboard").then((response) => {
       const { data } = response;
+
+      if (data.leaderboard.length === 0) {
+        data.leaderboard = [
+          {
+            user: "ironsoul",
+            score: 15,
+          },
+          {
+            user: "timka2609",
+            score: 7,
+          },
+          {
+            user: "adminadmin",
+            score: 3,
+          },
+        ];
+      }
+
       setData({
         info: data.leaderboard.slice(0, 10),
         loading: false,
